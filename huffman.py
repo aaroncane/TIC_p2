@@ -1,4 +1,6 @@
 import time
+import os
+
 inicio = time.time()
 class NodoABB:
     def __init__(self, info):
@@ -110,7 +112,7 @@ with open("codificado.huff", "wb") as f:
 
 fin = time.time()
 tiempo_total = fin - inicio
-print(f"El programa tardó {tiempo_total} segundos en crear el archivo .huff")
+print("El programa tardo: ", tiempo_total," segundos en crear el archivo .huff")
 
 
 with open("codificado.huff", "rb") as f:
@@ -141,12 +143,16 @@ for bit in cadena_codificada:
         codigo_temporal = ''
 
 
-print(cadena_decodificada == cadena)
 
 with open ("decodificado.bin", 'wb') as f:
     f.write(cadena_decodificada)
     f.close
 
 fin = time.time()
+print("Tamanio de imagen sin codificar: ", os.stat("file.jpg").st_size, " Bytes")
+print("Tamanio de imagen con extension .huff: ", os.stat("codificado.huff").st_size, " Bytes")
+print("Tamanio de imagen con extension .bin: ", os.stat("decodificado.bin").st_size, " Bytes")
+
 tiempo_total = fin - inicio
-print(f"El programa tardó {tiempo_total} segundos.")
+
+print("El programa tardo: ", tiempo_total," segundos.")
