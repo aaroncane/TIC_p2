@@ -1,5 +1,6 @@
 
 import time
+import os
 inicio = time.time()
 def split_list(lst):
     total = sum(freq for _, freq in lst)    
@@ -86,7 +87,8 @@ with open("codificado.shfa", "wb") as f:
 
 fin = time.time()
 tiempo_total = fin - inicio
-print(f"El programa tardó {tiempo_total} segundos en crear el archivo .shfa")
+print("El programa tardó: ", tiempo_total, " segundos en crear el archivo .shfa")
+
 
 with open("codificado.shfa", "rb") as f:
     contenido = f.read()
@@ -113,7 +115,6 @@ for bit in cadena_codificada:
         cadena_decodificada += simbolo
         codigo_temporal = ''
 
-print(cadena_decodificada == cadena)
 
 with open ("decodificado.bin", 'wb') as f:
     f.write(cadena_decodificada)
@@ -121,4 +122,9 @@ with open ("decodificado.bin", 'wb') as f:
 
 fin = time.time()
 tiempo_total = fin - inicio
-print(f"El programa tardó {tiempo_total} segundos.")
+print("Tamanio de imagen sin codificar: ", os.stat("file.jpg").st_size, " Bytes")
+print("Tamanio de imagen con extension .shfa: ", os.stat("codificado.shfa").st_size, " Bytes")
+print("Tamanio de imagen con extension .bin: ", os.stat("decodificado.bin").st_size, " Bytes")
+
+
+print("Tiempo de ejecucion: " ,tiempo_total, "segundos.")
