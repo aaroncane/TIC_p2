@@ -1,2 +1,4 @@
 # TIC_p2
-Comprension
+Comprension Shannon-Fano
+Comprension Huffman
+
